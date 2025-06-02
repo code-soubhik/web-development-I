@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediaVerse</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+
+  <!-- Fixed Navbar -->
+  <header class="navbar">
+    <div class="logo">🎬 MediaVerse</div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <nav class="nav-links">
+      <a href="#intro">Home</a>
+      <a href="#trending">Trending</a>
+      <a href="#popular">Popular</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+  </header>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="mode-toggle"> 🌗 Toggle Mode
+    </label>
+  </div>
+
+  <!-- Intro Section -->
+  <section id="intro" class="intro">
+    <div class="intro-text">
+      <h1>Welcome to <span>MediaVerse</span></h1>
+      <p>Discover the latest and greatest in film & TV</p>
+      <a href="#trending" class="btn">Explore Trending</a>
+    </div>
+    <div class="intro-svg">
+      <svg viewBox="0 0 100 100" class="bouncy-circle">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="tomato"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Trending Movies -->
+  <section id="trending">
+    <h2>Trending Movies</h2>
+    <p class="subtitle">Your daily dose of entertainment</p>
+    <div class="cards">
+      <div class="card">
+        <img src="./inception.jpeg" alt="Movie Poster" width="200" height="300"/>
+        <div class="card-body">
+          <h3>Inception</h3>
+          <p>A mind-bending thriller by Christopher Nolan.</p>
+          <span class="duration">2h 28m</span>
+          <div class="hover-actions">
+            <a href="#" class="btn">Watch Now</a>
+            <button class="toggle-watch">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Shows -->
+  <section id="popular">
+    <h2>Popular Shows</h2>
+    <p class="subtitle">What everyone's bingeing right now</p>
+    <div class="cards">
+      <div class="card">
+        <img src="./stranger_things.jpeg" alt="Show Poster" width="200" height="300"/>
+        <div class="card-body">
+          <h3>Stranger Things</h3>
+          <p>Sci-Fi • 4 Seasons • 34 Episodes</p>
+          <button class="btn learn-more">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- User Reviews -->
+  <section id="reviews" class="reviews">
+    <div class="review-cards">
+      <div class="review-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User" width="80" height="80"/>
+        <h4>Jane Doe</h4>
+        <p>Loved the curated lists! ⭐⭐⭐⭐⭐</p>
+      </div>
+    </div>
+    <div class="review-form">
+      <h3>Submit Your Review</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Write your thoughts..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="footer-links">
+      <a href="#" target="_blank">Privacy Policy</a>
+      <a href="#" target="_blank">Terms</a>
+    </div>
+    <a href="#intro" class="back-to-top">↑ Back to Top</a>
+  </footer>
+
+</body>
+</html>
