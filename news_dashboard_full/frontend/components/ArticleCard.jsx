@@ -8,7 +8,8 @@ function ArticleCard({ article }) {
   async function handleSummarize() {
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/summarize', {
+      const requestURL = `${import.meta.env.VITE_BASE_URL}/summarize`;
+      const res = await axios.post(requestURL, {
         content: article.content
       });
       setSummary(res.data.summary);

@@ -1,10 +1,10 @@
-const axios = require('axios');
+const axios = require("axios");
 
 async function summarizeArticle(req, res) {
   const { content } = req.body;
 
   if (!content) {
-    return res.status(400).json({ message: 'Missing article content' });
+    return res.status(400).json({ message: "Missing article content" });
   }
 
   try {
@@ -15,26 +15,40 @@ async function summarizeArticle(req, res) {
           {
             parts: [
               {
-                text: `Summarize the following article in 3 bullet points:\n${content}`
-              }
-            ]
-          }
-        ]
+                text: `Summarize the following article in 3 bullet points:\n${content}`,
+              },
+            ],
+          },
+        ],
       },
       {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       }
     );
 
-    const summary = response.data.candidates?.[0]?.content?.parts?.[0]?.text || 'No summary generated';
+    const summary =
+      response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "No summary generated";
     res.json({ summary });
-
   } catch (error) {
-    console.error('Gemini API Error:', error.response?.data || error.message);
-    res.status(500).json({ message: 'Summarization failed' });
+    console.error("Gemini API Error:", error.response?.data || error.message);
+    res.status(500).json({ message: "Summarization failed" });
   }
 }
 
-module.exports = { summarizeArticle };
+async function topHeadlines(req, res) {
+  const { category = "general" } = req.query;
+  try {
+    const response = await axios.get(
+      `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${process.env.NEWS_API_KEY}`,
+    );
+    res.status(200).json(response.data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Failed to fetch news.", err: err });
+  }
+}
+
+module.exports = { summarizeArticle, topHeadlines };

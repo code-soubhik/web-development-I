@@ -12,7 +12,8 @@ function Articles({ category }) {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`);
+        const requestURL = `${import.meta.env.VITE_BASE_URL}/top-headlines?category=${category}`;
+        const res = await axios.get(requestURL);
         setArticles(res.data.articles);
       } catch (err) {
         setError('Failed to load news.');
